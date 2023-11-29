@@ -34,6 +34,7 @@ public class TestElfShould {
         elf.addCalories(5000);
         assertThat(elf.compareTo(elf), equalTo(0));
     }
+
     @Test
     void compare_return_negative_value_for_elf_with_less_total_calories() {
         Elf bigElf = new Elf();
@@ -41,5 +42,50 @@ public class TestElfShould {
         Elf smallElf = new Elf();
         smallElf.addCalories(3000);
         assertThat(smallElf.compareTo(bigElf), lessThan(0));
+    }
+
+    @Test
+    void elf_should_be_carrying_6000_calories() {
+        Elf elfOne = new Elf();
+        elfOne.addCalories(1000);
+        elfOne.addCalories(2000);
+        elfOne.addCalories(3000);
+
+        assertThat(elfOne.getTotalCalories(), equalTo(6000));
+    }
+
+    @Test
+    void elf_should_be_carrying_4000_calories() {
+        Elf elf = new Elf();
+        elf.addCalories(4000);
+
+        assertThat(elf.getTotalCalories(), equalTo(4000));
+    }
+
+    @Test
+    void elf_should_be_carrying_11000_calories() {
+        Elf elf = new Elf();
+        elf.addCalories(5000);
+        elf.addCalories(6000);
+
+        assertThat(elf.getTotalCalories(), equalTo(11000));
+    }
+
+    @Test
+    void elf_should_be_carrying_24000_calories() {
+        Elf elf = new Elf();
+        elf.addCalories(7000);
+        elf.addCalories(8000);
+        elf.addCalories(9000);
+
+        assertThat(elf.getTotalCalories(), equalTo(24000));
+    }
+
+    @Test
+    void elf_should_be_carrying_10000_calories() {
+        Elf elf = new Elf();
+        elf.addCalories(10000);
+
+        assertThat(elf.getTotalCalories(), equalTo(10000));
     }
 }
